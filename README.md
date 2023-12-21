@@ -4,4 +4,4 @@ This repository contains PDFs for solutions that have been covered on my YouTube
 <br />
 
 > [!IMPORTANT]
-> Please report any typos/numerical errors in a comment on my YouTube videos, or directly via sinethetaprime@gmail.com. <br />
+> Please report any typos/numerical errors/suggestions in a comment on my YouTube videos, or directly via sinethetaprime@gmail.com. <br />
