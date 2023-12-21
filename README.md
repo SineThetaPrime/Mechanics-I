@@ -1,2 +1,7 @@
 # Mechanics I
-This repository contains LaTeX PDFs for physics problem solutions that have been covered on my YouTube channel. (youtube.com/@SineThetaPrime) 
+This repository contains PDFs for solutions that have been covered on my YouTube channel. <br />
+(**youtube.com/@SineThetaPrime**) \
+<br />
+
+> [!IMPORTANT]
+> Please report any typos/numerical errors in a comment on my YouTube videos, or directly via sinethetaprime@gmail.com. <br />
