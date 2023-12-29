@@ -1,0 +1,269 @@
+\documentclass[12pt,letterpaper]{article}
+
+% ================================================================
+%                            Packages
+% ================================================================
+\usepackage{adjustbox, amsmath, amsthm, amsfonts, amssymb, amscd}
+\usepackage{bm}
+\usepackage[makeroom]{cancel}
+\usepackage{caption}
+\usepackage{enumerate}
+\usepackage{fancyhdr, float, fullpage}
+\usepackage[letterpaper, 
+            top=2cm, 
+            bottom=4.5cm, 
+            left=2.5cm, 
+            right=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,
+            allcolors=blue, 
+            pdftex, 
+            pdfauthor={Sine Theta Prime}, 
+            pdftitle={Compound Projectile Motion Problem \#3}, 
+            pdfsubject={Motion in Two or Three Dimensions},
+            pdfproducer={LaTeX with Hyperref},
+            pdfcreator={Overleaf}]{hyperref}
+\usepackage[capitalize,
+            noabbrev, 
+            nameinlink]{cleveref}
+\usepackage{mathrsfs, 
+            mathstyle, 
+            mathtools}
+\usepackage{pgfplots}
+\usepgflibrary{shadings}
+\pgfplotsset{compat=1.18}
+\usepackage{physics}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{tikz} 
+\usepackage{upgreek}
+\usetikzlibrary{calc, 
+                decorations, 
+                decorations.pathreplacing, 
+                decorations.markings, 
+                decorations.text, 
+                scopes}
+\usepackage{xcolor}
+% ================================================================
+
+
+
+% ================================================================
+%                   Custom Commands & Settings
+% ================================================================
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\setlength\fboxsep{0.04in}
+\setlength\fboxrule{1.25pt}
+\setlength{\textheight}{8.5in}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+\let\theta\uptheta
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+% ================================================================
+
+
+
+% ================================================================
+%                        Title Section
+% ================================================================
+\pagestyle{fancyplain}
+\headheight 36pt
+\chead{\textbf{\Large Compound Projectile Motion Problem \#2}\\
+               \large Motion in Two or Three Dimensions}
+\rhead{}
+\lfoot{}
+\cfoot{\line(1,0){475}\\Page\:\thepage}
+\rfoot{}
+\headsep 2em
+% ================================================================
+
+
+
+\begin{document}
+
+% ================================================================
+%                      Question Section
+% ================================================================
+\textit{$\!$As a ship is approaching a dock at 45.0 cm/s, a piece of landing equipment needs to be thrown to it before it can dock. This equipment is thrown at 15.0 m/s at 60.0\textdegree\:above the horizontal from the top of a tower near the edge of the water, 8.75 m above the ship's deck. For this equipment to land at the front of the ship, at what distance D from the dock should the ship be when the equipment is thrown? Air resistance can be neglected.}
+\bigskip
+
+\begin{figure}[h!]
+\centering
+    \begin{tikzpicture}
+
+    % Temporary grid to help drawing (delete after)
+    %\draw [gray, very thick] (0,0) grid (12,5);
+
+    % Coordinates of rectangle representing the shore
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,3);
+    \coordinate (C) at (2,3);
+    \coordinate (D) at (2,0);
+
+    % Coordinates of rectangle representing the water
+    \coordinate (E) at (12,0);
+    \coordinate (F) at (12,2.5);
+
+    % Coordinates representing tower
+    \coordinate (G) at (0.5,3);
+    \coordinate (H) at (1.5,3);
+    \coordinate (I) at (1.5,5);
+    \coordinate (J) at (0.5,5);
+    
+
+    % Lines representing the shore
+    \draw[ultra thick] (A) -- (B);
+    \draw[ultra thick] (B) -- (C);
+    \draw[ultra thick] (C) -- (D);
+    \draw[ultra thick] (D) -- (A);
+
+    % Outline of the water
+    \draw[ultra thick] (D) -- (E);
+    \draw[ultra thick] (E) -- (F);
+
+    \begin{pgfonlayer}{bg}
+        \draw[ultra thick] (F) -- (2,2.5);
+    \end{pgfonlayer}
+    
+
+    % Lines outlining the tower
+    %\begin{pgfonlayer}{bg}
+        \draw[ultra thick] (G) -- (J);
+        \draw[ultra thick] (H) -- (I);
+        \draw[ultra thick] (I) -- (J);
+    %\end{pgfonlayer}
+
+    % Dimension line along tower
+    \draw[stealth-stealth, ultra thick] (0.3, 3.05) -- node[inner sep = 1.5mm, outer sep = 1.5mm, xshift=-8mm] {$8.75\: \text{m}$} (0.3, 4.95);
+
+    % Gradient rectangle of shore
+    \begin{pgfonlayer}{bg}
+        \shade[top color = gray!70, bottom color = gray!45] (A) rectangle (C);
+    \end{pgfonlayer}
+
+    % Gradient rectangle of the water
+    \begin{pgfonlayer}{bg}
+        \shade[top color = cyan!20, bottom color = cyan!60] (D) rectangle (F);
+    \end{pgfonlayer}
+
+    % Gradient rectangle of the tower
+    \begin{pgfonlayer}{bg}
+        \fill[color = brown!50] (G) rectangle (I);
+    \end{pgfonlayer}
+
+    % Arc trajectory of thrown equipment
+    \draw [color=red, -stealth, ultra thick, dashed] (1,5.1) arc (-60:-180:-2);
+
+    % Drawing boat's final position
+    \coordinate (B1) at (6,3); % back of boat
+    \coordinate (B2) at (4,3); % front of boat
+    \coordinate (B3) at (5,3); % flag base
+    \coordinate (B4) at (5,4); % flag mid
+    \coordinate (B5) at (4,4); 
+    \coordinate (B6) at (6,4);
+    \coordinate (B7) at (5,5);
+    \fill [very thick, color=brown] (B1) arc (-0:-180:1);
+    \draw [very thick] (B1) arc (-0:-180:1);
+    \draw [very thick] (B1) -- (B2);
+    \draw [very thick] (B3) -- (B4);
+    \draw [very thick] (B5) -- (B6) -- (B7) -- (B5);
+
+    % Drawing boat's initial position
+    \coordinate (I1) at (12,3); % back of boat
+    \coordinate (I2) at (10,3); % front of boat
+    \coordinate (I3) at (11,3); % flag base
+    \coordinate (I4) at (11,4); % flag mid
+    \coordinate (I5) at (10,4); 
+    \coordinate (I6) at (12,4);
+    \coordinate (I7) at (11,5);
+    \fill [very thick, color=brown, semitransparent] (I1) arc (-0:-180:1);
+    \draw [very thick, semitransparent] (I1) arc (-0:-180:1);
+    \draw [very thick, semitransparent] (I1) -- (I2);
+    \draw [very thick, semitransparent] (I3) -- (I4);
+    \draw [very thick, semitransparent] (I5) -- (I6) -- (I7) -- (I5);
+
+    % Boat initial velocity vector
+    \definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0};
+    \draw[stealth-, color=ao(english), ultra thick] (8.5,3) -- (9.9,3) node [above, midway, color=black] {$45.0\:\dfrac{\text{cm}}{\text{s}}$};
+
+    % Dimension lines for distances
+    \draw[stealth-stealth, ultra thick] (2,.8) -- (10,.8) node [below, midway, font=\large] {$\text{D}$};
+    \draw[stealth-stealth, ultra thick] (2, 1.85) -- (4, 1.85) node [below, midway, font=\large] {$\text{d}_1$};
+    \draw[stealth-stealth, ultra thick] (4, 1.85) -- (10, 1.85) node [below, midway, font=\large] {$\text{d}_2$};
+    
+    
+    \end{tikzpicture}
+\end{figure}
+\bigskip
+
+\textbf{\large Solution}
+\bigskip 
+
+The distance D will be the sum of the two distances $\text{d}_1$ and $\text{d}_2$, where $\text{d}_1$ is the distance between the dock and the ship when the equipment lands on the boat, and $\text{d}_2$ is the distance between the boat's initial and final positions.
+
+\bigskip
+
+To determine the value of $\text{d}_1$ and $\text{d}_2$, the time of flight for the equipment must be known. This can be found by using the kinematic equation for vertical displacement:
+\begin{align}\label{eq}
+    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{\text{y}}}t + \dfrac{1}{2}a_{\text{y}}t^2
+\end{align}
+Let H be the height of the tower, $\uptheta$ be the launch angle of the equipment, and $-g$ the acceleration due to gravity, such that:
+\begin{align*}
+    0 &= \text{H} + v_{\text{i}} \sin(\uptheta)t - \dfrac{1}{2}gt^2
+\end{align*}
+
+This is a quadratic expression in $t$. 
+\pagebreak
+
+
+
+\thispagestyle{fancyplain}
+\chead{}
+\renewcommand{\headrulewidth}{0pt}
+\headheight 15pt 
+\renewcommand{\headsep}{0cm}
+\renewcommand{\footskip}{2.6cm}
+The quadratic coefficients are:
+\begin{alignat*}{2}
+    A = &\:-\dfrac{1}{2}g \\\\
+    B = &\:v_{\text{i}}\sin(\theta) \\\\
+    C = &\:\text{H}
+\end{alignat*}
+Plugging these into the quadratic equation:
+\begin{gather*}
+    t = \dfrac{-\Big(v_{\text{i}}\sin(\theta) \Big) \pm \sqrt{\Big(v_{\text{i}}\sin(\theta) \Big)^2 - 4(-\dfrac{1}{2}g)(\text{H})}}{\cancel{2}\Big(-\dfrac{1}{\cancel{2}}g \Big)} \\\\
+    = \dfrac{-\Big(v_{\text{i}}\sin(\theta)  \Big) \pm \sqrt{\Big(v_{\text{i}}\sin(\theta)  \Big)^2 + 2g\text{H}}}{-g} \\\\
+    = \dfrac{\Big(v_{\text{i}}\sin(\theta)  \Big) \mp \sqrt{\Big(v_{\text{i}}\sin(\theta)  \Big)^2 + 2g\text{H}}}{g}
+\end{gather*}
+Using the minus sign results in a negative time which can be discarded.
+
+\bigskip
+The positive time is:
+\begin{align*}
+    = \dfrac{\Big(15.0\:\dfrac{\text{m}}{\text{s}}\Big)\sin(60.0^\circ) + \sqrt{\Bigg(\Big(15.0\:\dfrac{\text{m}}{\text{s}}\Big)\sin(60.0^\circ)  \Bigg)^2 + 2\Big(9.80\:\dfrac{\text{m}}{\text{s²}}\Big)(8.75\:\text{m})}}{9.80\:\dfrac{\text{m\vphantom{a^a}}}{\text{s²}}}
+\end{align*}
+\begin{align*}
+    \approx 3.21\:\text{s} 
+\end{align*}
+\pagebreak
+
+With the time known, $\text{d}_1$ is found by using the horizontal version of \textbf{\labelcref{eq}}:
+\begin{align*}
+    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{\text{x}}}t + \dfrac{1}{2}a_{\text{x}}t^2
+\end{align*}
+Where $x_{\text{f}}=\text{d}_1$, $x_{\text{i}}=0$, and $a_{\text{x}}=0$:
+\begin{alignat*}{2}
+    \hspace{1.9cm}\text{d}_1 &= v_{\text{i}_{\text{x}}}t \\\\
+    &= v_{\text{i}}\cos{\theta}t \\\\
+    &= \Big(15.0\:\dfrac{\text{m}}{\text{s}} \Big)\cos(60.0^\circ)(3.21\:\text{s}) \\\\
+    &\approx 24.1\:\text{m}
+\intertext{To find $\text{d}_2$, use the 1D version of \textbf{\labelcref{eq}} in the horizontal direction applied to the boat at its initial position, where $x_f={\text{d}}_2$, $x_{\text{i}}=0$, and $a=0$ :}
+    \text{d}_2 &= \Big(0.45\: \dfrac{ \text{m} }{ \text{s} }  \Big)(3.21\:\text{s}) \\\\
+    &\approx 1.44\:\text{m}
+\intertext{Therefore, the final answer is:}
+    \text{D} &= (24.1\:\text{m}) + (1.44\:\text{m}) \\\\
+    &\approx \boxed{25.5\:\text{m}}
+\end{alignat*}
+
+\end{document}
