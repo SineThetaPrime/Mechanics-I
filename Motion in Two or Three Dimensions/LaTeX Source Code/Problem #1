@@ -1,0 +1,222 @@
+\documentclass[12pt,letterpaper]{article}
+
+% ================================================================
+%                            Packages
+% ================================================================
+\usepackage{adjustbox, amsmath, amsthm, amsfonts, amssymb, amscd}
+\usepackage{bm}
+\usepackage[makeroom]{cancel}
+\usepackage{caption}
+\usepackage{enumerate}
+\usepackage{fancyhdr, float, fullpage}
+\usepackage[letterpaper, 
+            top=2cm, 
+            bottom=4.5cm, 
+            left=2.5cm, 
+            right=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,
+            allcolors=blue, 
+            pdftex, 
+            pdfauthor={Sine Theta Prime}, 
+            pdftitle={Compound Projectile Motion Problem \#1}, 
+            pdfsubject={Motion in Two or Three Dimensions},
+            pdfproducer={LaTeX with Hyperref},
+            pdfcreator={Overleaf}]{hyperref}
+\usepackage[capitalize,
+            noabbrev, 
+            nameinlink]{cleveref}
+\usepackage{mathrsfs, 
+            mathstyle, 
+            mathtools}
+\usepackage{pgfplots}
+\usepgflibrary{shadings}
+\pgfplotsset{compat=1.18}
+\usepackage{physics}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{tikz} 
+\usetikzlibrary{calc, 
+                decorations, 
+                decorations.pathreplacing, 
+                decorations.markings, 
+                decorations.text, 
+                scopes}
+\usepackage{upgreek}
+\usepackage{xcolor}
+% ================================================================
+
+
+
+% ================================================================
+%                   Custom Commands & Settings
+% ================================================================
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\setlength\fboxsep{0.04in}
+\setlength\fboxrule{1.25pt}
+\setlength{\textheight}{8.5in}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+\let\theta\uptheta
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+% ================================================================
+
+
+
+% ================================================================
+%                        Title Section
+% ================================================================
+\pagestyle{fancyplain}
+\headheight 36pt
+\chead{\textbf{\Large Compound Projectile Motion Problem \#1}\\
+               \large Motion in Two or Three Dimensions}
+\rhead{}
+\lfoot{}
+\cfoot{\line(1,0){475}\\Page\:\thepage}
+\rfoot{}
+\headsep 2em
+% ================================================================
+
+
+
+\begin{document}
+
+% ================================================================
+%                      Question Section
+% ================================================================
+\textit{$\!$A test rocket is launched by accelerating it along a 200.0 m incline at 1.25 m/s² starting from rest at point A:}
+\bigskip
+
+\begin{figure}[h!]
+\centering
+    \begin{tikzpicture}
+
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4.976,3);
+    \coordinate (C) at (4.976, 0);
+
+    \coordinate (P1) at ($(A)!.3cm!90:(B)$);
+    \coordinate (P2) at ($(B)!.3cm!-90:(A)$);
+
+    % Incline base
+    \draw[thick] (-1,0) -- (A);
+    \draw[thick, dashed] (A) -- (4.99,0);
+    \draw[thick] (4.976,0) -- (5.8,0);
+
+    % Point A
+    
+
+    % Incline hypotenuse
+    \draw[thick] (A) -- (4.996,3);
+
+    % Incline opposite side
+    \draw[thick] (4.99,3) -- (4.99,0);
+
+    % Angle arc and label
+    \draw[thick] (0.9,0) arc (0:35:0.8) node[right, xshift=1mm, yshift=-1.2mm] {$35.0^\circ$};
+
+    % Gradient rectangles & arc fill
+    \begin{pgfonlayer}{bg}
+        \shade[top color = gray!50] (-1,0) rectangle (0,-.1);
+        \shade[top color = gray!50] (4.976,0) rectangle (5.8,-.1);
+        \fill[fill=gray!50!white](0,0) -- (0.9,0) arc (0:35:0.8);
+    \end{pgfonlayer}
+
+    % Dimension line along hypotenuse
+    \draw[|<->|, thick] (P1) -- node[fill = white, inner sep = 1.5mm, outer sep = 1.5mm, rotate=30, yshift=0.25mm] {$200.0\: \text{m}$} (P2);
+    
+
+    \end{tikzpicture}
+    
+\end{figure}
+\bigskip
+\textit{The incline rises at 35.0° above the horizontal, and at the instant the rocket leaves it, its engines turn off and it is subject only to gravity (air resistance can be ignored.)}
+
+\medskip
+\textit{Find (a) the maximum height above the ground that the rocket reaches, and (b) the greatest horizontal range of the rocket beyond point A.}
+
+\bigskip
+\bigskip
+\bigskip
+
+\textbf{\large Solution}
+\bigskip 
+
+To obtain the maximum height and range of the rocket, it is necessary to know the velocity of the rocket once it leaves the ramp. This can be found by separating the motion of the rocket into multiple stages. Let stage 1 be the motion of the rocket along the ramp, and stage 2 be the motion of the rocket once it has left the ramp. 
+\bigskip
+
+The final velocity at the end of the ramp in stage 1 is found using the following kinematic equation:
+\begin{align*}
+    v_{\text{f}}^2 &= v_{\text{i}}^2 + 2aL \numberthis \label{eq}
+\intertext{Where $v_{\text{f}}$ is the final velocity at the end of the ramp, $v_{\text{i}}$ is the initial velocity at the bottom of the ramp, and $L$ is the length of the ramp. Because the rocket is launched from rest, $v_{\text{i}} = 0$. The final velocity is:}
+    v_{\text{f}} &= \sqrt{2aL}
+\intertext{a.) The maximum height is found when the final velocity in the vertical direction is zero in stage 2. The 2D equivalent of \textbf{\labelcref{eq}} is given by:}
+    \Big(v_{\text{f}_{\text{y}}} \sin(\theta) \Big)^2 &= \Big(v_{\text{i}_{\text{y}}} \sin(\theta)\Big)^2 + 2a_{\text{y}}\Delta  y
+\end{align*}
+\pagebreak
+
+
+\thispagestyle{fancyplain}
+\chead{}
+\renewcommand{\headrulewidth}{0pt}
+\headheight 15pt 
+\renewcommand{\headsep}{0cm}
+\renewcommand{\footskip}{2.6cm}
+Where $\Delta y$ is the vertical distance between the top of the ramp and the maximum height. Setting $v_{\text{f}_{\text{y}}}=0$ and $a_{\text{y}}=-g$ allows for the isolation of $\Delta y$:
+\begin{align*}
+    0 &= \Big(v_{\text{i}_{\text{y}}} \sin(\theta)\Big)^2 - 2g\Delta y \\\\
+    2g\Delta y &= \Big(v_{\text{i}_{\text{y}}} \sin(\theta)\Big)^2 \\\\
+    \Delta y &= \dfrac{\Big(v_{\text{i}_{\text{y}}} \sin(\theta)\Big)^2}{2g}
+\intertext{The initial velocity in stage 2 is the final velocity from stage 1:}
+    \hspace{-4.5mm}\Delta y &= \dfrac{\Big(\sqrt{2aL} \sin(\theta)\Big)^2}{2g} \\\\
+    &= \dfrac{\cancel{2}aL\sin^2(\theta)}{\cancel{2}g} \\\\
+    &= \dfrac{aL\sin^2(\theta)}{g}
+%\end{align*}
+\intertext{The maximum height above the ground is then the vertical distance of the ramp plus $\Delta y$:}
+%\begin{align*}
+    h_{\text{max}} &= h_{\text{ramp}} + \Delta y \\\\
+    &= L\sin(\theta) + \Delta y \\
+\intertext{$$= \Big(200.0\:\text{m}\Big)\sin(35.0^\circ)+\dfrac{\Big(1.25\:\dfrac{\text{m}}{\text{s$\vphantom{a_a}$²}}\Big)\Big(200.0\:\text{m}\Big)\sin^2(35.0^\circ)}{9.80\:\dfrac{\text{m$\vphantom{a^a}$}}{\text{s²}}}$$} 
+    &\approx \boxed{123\:\text{m}}
+\end{align*}
+
+\pagebreak
+
+
+To find the maximum range, the time of flight for the rocket in stage 2 needs to be determined. Starting with the kinematic equation for vertical displacement:
+\begin{align*}
+    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{\text{y}}}t + \dfrac{1}{2}a_{\text{y}} t^2 \numberthis \label{eq2}
+\intertext{When the rocket smashes into the ground, $y_{\text{f}}=0$. Substitute $y_{\text{i}}$ with the height of the ramp, $v_{\text{i}_{\text{y}}}$ with the vertical velocity at the start of stage 2, and $a_{\text{y}}$ with the acceleration due to gravity:
+$$0 = L\sin(\theta) + \sqrt{2aL}\sin(\theta)t - \dfrac{1}{2}gt^2$$
+$$\vspace{-1.25em}$$This result is a quadratic expression in $t$. The quadratic coefficients are:}
+    A &= -\dfrac{1}{2}g \\\\
+    B &= \sqrt{2aL}\sin(\theta) \\\\
+    C &= L\sin(\theta)
+\end{align*}
+Plugging these into the quadratic equation and solving for $t$:
+\begin{gather*}
+    t = \dfrac{-\Big(\sqrt{2aL}\sin(\theta)\Big) \pm \sqrt{\Big(\sqrt{2aL}\sin(\theta)\Big)^2 - 4\Big(-\dfrac{1}{2}g \Big)\Big(L\sin(\theta) \Big)}}{\cancel{2}\Big(-\dfrac{1}{\cancel{2}}g\Big)} \\\\
+    = \dfrac{-\Big(\sqrt{2aL}\sin(\theta)\Big) \pm \sqrt{2aL\sin^2(\theta) + 2gL\sin(\theta)}}{-g    } \\\\
+    = \dfrac{\Big(\sqrt{2aL}\sin(\theta)\Big) \mp \sqrt{2aL\sin^2(\theta) + 2gL\sin(\theta)}}{g    } \\\\
+    = \dfrac{\sqrt{2L}}{g}\Bigg[\sqrt{a}\sin(\theta) \mp \sqrt{\sin(\theta)(a\sin(\theta)+g)} \Bigg]
+\end{gather*}
+Using the minus sign results in a negative time which can be discarded. 
+\pagebreak 
+
+The positive time is:
+\begin{gather*}
+    = \dfrac{\sqrt{2(200.0\:\text{m})}}{9.80\:\dfrac{\text{m$\vphantom{a^a}$}}{\text{s²}}}\Bigg[\sqrt{\Big(1.25\:\dfrac{\text{m}}{\text{s²}}  \Big)}\sin(35.0^\circ) + \sqrt{\sin(35.0^\circ)\Big((1.25\:\dfrac{\text{m}}{\text{s²}})\sin(35.0^\circ)+9.80\:\dfrac{\text{m}}{\text{s²}}\Big)} \Bigg] \\\\
+    \approx 6.32\:\text{s}
+\end{gather*}
+
+b.) With the time of flight known, the horizontal version of \textbf{\labelcref{eq2}} can be used to obtain the final distance of the rocket:
+\begin{align*}
+    \hspace{1.76cm}x_{\text{f}} &= x_{\text{i}} + v_{\text{i}_{\text{x}}} + \dfrac{1}{2}a_{\text{x}}t^2
+\intertext{Where $x_{\text{i}}$ is the horizontal length of the ramp in stage 1, and $a_{x}=0$ in stage 2:}
+    x_{\text{f}} &= L\cos(\theta) + \sqrt{2aL}\cos(\theta)t 
+\intertext{$$= \Big(200.0\:\text{m}\Big)\cos(35.0^\circ) + \sqrt{2\Big(1.25\:\dfrac{\text{m}}{\text{s²}} \Big)\Big(200.0\:\text{m}\Big)}\cos(35.0^\circ)(6.32\:\text{s})$$}
+    &\approx \boxed{280\:\text{m}}
+\end{align*}
+
+\end{document}
