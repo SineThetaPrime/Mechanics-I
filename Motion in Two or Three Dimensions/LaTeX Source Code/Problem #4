@@ -213,8 +213,8 @@
 
 a.) To determine the range of the snowball, the time of flight for the object is needed. This can be found by using the vertical version of the kinematic equation for displacement:
 \begin{align*}
-    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{\text{y}}}t + \dfrac{1}{2}a_{\text{y}}t^2 \numberthis \label{eq}
-\intertext{Where $y_{\text{f}}=0$ and $a_{\text{y}}=-g$:}
+    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{y}}t + \dfrac{1}{2}a_{y}t^2 \numberthis \label{eq}
+\intertext{Where $y_{\text{f}}=0$ and $a_{y}=-g$:}
     0 &= y_{\text{i}} + v_{\text{i}}\sin(\theta)t - \dfrac{1}{2}gt^2
 \end{align*}
 \pagebreak
@@ -222,7 +222,7 @@ a.) To determine the range of the snowball, the time of flight for the object is
 \thispagestyle{fancyplain}
 \chead{}
 \renewcommand{\headrulewidth}{0pt}
-\headheight 15pt 
+\headheight 15pt
 \renewcommand{\headsep}{0cm}
 \renewcommand{\footskip}{2.6cm}
 This is a quadratic expression in $t$. The quadratic coefficients are:
@@ -250,12 +250,12 @@ The positive time is:
 
 The time above will be used with the horizontal version of \textbf{\labelcref{eq}}:
 \begin{align*}
-    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{\text{x}}}t + \dfrac{1}{2}a_{\text{x}}t^2
+    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{x}}t + \dfrac{1}{2}a_{x}t^2
 \end{align*}
 Where $x_{\text{i}} = 0$ and $a_{\text{x}}=0$. Let the range of the snowball be $\text{R}$ such that:
 \vspace{1.5mm}
 \begin{align*}
-    \smallskip \hspace{2.37cm}\text{R} &= v_{\text{i}}\cos(\theta)t \numberthis \label{eq2} \\\\ 
+    \smallskip \hspace{2.37cm}\text{R} &= v_{\text{i}}\cos(\theta)t \numberthis \label{eq2} \\\\
     &= \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }  \Big)\cos(-40.0^\circ)(1.29\:\text{s}) \\\\
     &\approx \boxed{6.93\:\text{m}}
 \end{align*}
@@ -267,7 +267,7 @@ b.) Plots for the time-dependent behavior of the snowball:
     \centering
     \begin{minipage}[b]{0.40\textwidth}
     \centering
-    
+
         \begin{tikzpicture}
             \begin{axis}[
                 axis lines = left,
@@ -293,11 +293,11 @@ b.) Plots for the time-dependent behavior of the snowball:
         \end{tikzpicture}
         \captionsetup{labelfont = bf}
         \caption{$x$\:vs.$\:t$}
-        
+
     \end{minipage}
     \hspace{1.5cm}
     \begin{minipage}[b]{0.40\textwidth}
-    
+
          \begin{tikzpicture}
             \begin{axis}[
                 axis lines = left,
@@ -329,10 +329,10 @@ b.) Plots for the time-dependent behavior of the snowball:
 
     \bigskip
     \bigskip
-    
+
     \begin{minipage}[b]{0.40\linewidth}
     \centering
-    
+
         \begin{tikzpicture}
             \begin{axis}[
                 axis lines = left,
@@ -357,12 +357,12 @@ b.) Plots for the time-dependent behavior of the snowball:
             \end{axis}
         \end{tikzpicture}
         \captionsetup{labelfont = bf}
-        \caption{$v_{\text{x}}$\:vs.$\:t$}
-        
+        \caption{$v_{x}$\:vs.$\:t$}
+
     \end{minipage}
     \hspace{1cm}
     \begin{minipage}[b]{0.40\linewidth}
-    
+
          \begin{tikzpicture}
             \begin{axis}[
                 axis lines = left,
@@ -389,9 +389,9 @@ b.) Plots for the time-dependent behavior of the snowball:
             \end{axis}
         \end{tikzpicture}
         \captionsetup{labelfont = bf}
-        \caption{$v_{\text{y}}$\:vs.$\:t$}
+        \caption{$v_{y}$\:vs.$\:t$}
     \end{minipage}
-    
+
 \end{figure}
 \pagebreak
 
@@ -399,12 +399,12 @@ Functions used for each plot:
 \begin{gather*}
     x(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} } \Big)\cos(-40.0^\circ)t \\\\
     y(t) = (14.0\:\text{m}) + \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\sin(-40.0^\circ)t - \dfrac{1}{2}\Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }  \Big)t^2 \\\\
-    v_{\text{x}}(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\cos(-40.0^\circ) \\\\
-    v_{\text{y}}(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\sin(-40.0^\circ) - \Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }\Big)t
+    v_{x}(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\cos(-40.0^\circ) \\\\
+    v_{y}(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\sin(-40.0^\circ) - \Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }\Big)t
 \end{gather*}
 \bigskip
 
-c.) To determine if the man will be hit by the snowball, rearrange \textbf{\labelcref{eq2}} for time: 
+c.) To determine if the man will be hit by the snowball, rearrange \textbf{\labelcref{eq2}} for time:
 \begin{align*}
     t = \dfrac{\text{R}}{v_{\text{i}}\cos(\theta)}
 \end{align*}
@@ -412,7 +412,7 @@ Plugging this into \textbf{\labelcref{eq}}:
 \begin{gather*}
     y_{\text{f}} = y_{\text{i}} + \cancel{v_{\text{i}}}\sin(\theta)\Big(\dfrac{R}{\cancel{v_{\text{i}}}\cos(\theta)}  \Big) - \dfrac{1}{2}g\Big(\dfrac{\text{R}}{v_{\text{i}}\cos(\theta)}  \Big)^2 \\\\
     = y_{\text{i}} + \text{R}\dfrac{\sin(\theta)}{\cos(\theta)} - \dfrac{g}{2}\Big(\dfrac{R\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
-    = y_{\text{i}} + \text{R}\tan(\theta) \dfrac{g}{2}\Big(\dfrac{R\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
+    = y_{\text{i}} + \text{R}\tan(\theta) - \dfrac{g}{2}\Big(\dfrac{R\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
     = (14.0\:\text{m}) + (4.0\:\text{m})\tan(-40.0^\circ) - \dfrac{9.80\:\dfrac{ \text{m} }{ \text{s²}\vphantom{A_A} }}{2}\Bigg(\dfrac{(4.0\:\text{m})\sec(-40.0^\circ)}{7.00\:\dfrac{ \text{m}\vphantom{A^a} }{ \text{s} }}  \Bigg)^2 \\\\
     \approx 7.9\:\text{m}
 \end{gather*}

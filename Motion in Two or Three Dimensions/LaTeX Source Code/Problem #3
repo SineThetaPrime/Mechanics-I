@@ -19,15 +19,15 @@
             allcolors=blue, 
             pdftex, 
             pdfauthor={Sine Theta Prime}, 
-            pdftitle={Compound Projectile Motion Problem \#4}, 
+            pdftitle={Compound Projectile Motion Problem \#3},
             pdfsubject={Motion in Two or Three Dimensions},
             pdfproducer={LaTeX with Hyperref},
             pdfcreator={Overleaf}]{hyperref}
 \usepackage[capitalize,
-            noabbrev, 
+            noabbrev,
             nameinlink]{cleveref}
-\usepackage{mathrsfs, 
-            mathstyle, 
+\usepackage{mathrsfs,
+            mathstyle,
             mathtools}
 \usepackage{pgfplots}
 \usepgflibrary{shadings}
@@ -35,14 +35,13 @@
 \usepackage{physics}
 \usepackage{subcaption}
 \usepackage{textcomp}
-\usepackage{tikz} 
+\usepackage{tikz}
 \usepackage{upgreek}
-\usetikzlibrary{calc, 
-                decorations, 
-                decorations.pathreplacing, 
-                decorations.markings, 
-                decorations.text, 
-                positioning,
+\usetikzlibrary{calc,
+                decorations,
+                decorations.pathreplacing,
+                decorations.markings,
+                decorations.text,
                 scopes}
 \usepackage{xcolor}
 % ================================================================
@@ -70,7 +69,7 @@
 % ================================================================
 \pagestyle{fancyplain}
 \headheight 36pt
-\chead{\textbf{\Large Compound Projectile Motion Problem \#4}\\
+\chead{\textbf{\Large Compound Projectile Motion Problem \#3}\\
                \large Motion in Two or Three Dimensions}
 \rhead{}
 \lfoot{}
@@ -86,336 +85,97 @@
 % ================================================================
 %                      Question Section
 % ================================================================
-\textit{$\!$A snowball rolls off a barn roof that slopes downward at an angle of 40.0\textdegree. The edge of the roof is 14.0\:m above the ground, and the snowball has a speed of 7.00 m/s as it rolls off the roof. Ignore air resistance. }
-
-\bigskip
-\begin{figure}[h!]
-\centering
-    \begin{tikzpicture}
-
-    % Temporary grid to help drawing
-    %\draw [gray, very thick] (0,0) grid (6,7);
-
-    % Coordinates of the snowy ground
-    \coordinate (S1) at (0,0);
-    %\filldraw[thick] (S1) circle (0.05) node[below=2.2pt, xshift=-0.75mm] {$S1$};
-    \coordinate (S2) at (6,0);
-    %\filldraw[thick] (S2) circle (0.05) node[below=2.2pt, xshift=-0.75mm] {$S2$};
-    \coordinate (S3) at (0,1);
-    %\filldraw[thick] (S3) circle (0.05) node[left=2.2pt, xshift=-0.75mm] {$S3$};
-    \coordinate (S4) at (6,1);
-    %\filldraw[thick] (S4) circle (0.05) node[right=2.2pt, xshift=0.75mm] {$S4$};
-
-    % Rectangle of the snowy ground
-    \begin{pgfonlayer}{bg}
-        \shade[top color = cyan!05, bottom color = cyan!25] (S1) rectangle (S4);
-    \end{pgfonlayer}
-
-    % Snowy ground outline
-    \draw[color=blue!20] (S3) -- (S4);
-
-    % Coordinates of the barn body
-    \coordinate (B1) at (2,1);
-    %\filldraw[thick] (B1) circle (0.05) node[below=2.2pt, xshift=3.75mm] {$B1$};
-    \coordinate (B2) at (2,5);
-    %\filldraw[thick] (B2) circle (0.05) node[below=2.2pt, xshift=3.75mm] {$B2$};
-    \coordinate (B3) at (0,5);
-    %\filldraw[thick] (B3) circle (0.05) node[below=2.2pt, xshift=3.75mm] {$B3$};
-    \coordinate (B4) at (0,7);
-    %\filldraw[thick] (B4) circle (0.05) node[left=2.2pt, xshift=-3.75mm] {$B4$};
-
-    % Barn body outline
-    \draw[thick] (B1) -- (2,5);
-    \draw[thick] (S3) -- (0,7);
-    \draw[thick] (S3) -- (B1);
-
-    % Rectangle and roof of the barn
-    \begin{pgfonlayer}{bg}
-        \shade[top color = brown!25, bottom color = brown!25] (S3) rectangle (B2);
-    \end{pgfonlayer}
-
-    % Barn roof background
-    \begin{pgfonlayer}{bg}
-        \filldraw [color = brown!25] (B3) -- (B2) -- (B4) -- (B3);
-    \end{pgfonlayer}
-    
-
-    % Barn roof edge
-    \coordinate (R1) at (2.1, 5);
-    %\filldraw[thick] (R1) circle (0.05) node[below=2.2pt, xshift=3.75mm] {$R1$};
-    \coordinate (R2) at (2.1, 4.85);
-    %\filldraw[thick] (R2) circle (0.05) node[left=2.2pt] {$R2$};
-    \coordinate (R3) at (0, 6.85);
-    %\filldraw[thick] (R3) circle (0.05) node[below=2.2pt, xshift=3.75mm] {$R3$};
-    \coordinate (R4) at (0, 7.1);
-    %\filldraw[thick] (R4) circle (0.05) node[above=2.2pt, xshift=3.75mm] {$R4$};
-
-    % Barn roof foreground
-    \filldraw[color=brown, draw=black] (R1) -- (R2) -- (R3) -- (R4) -- (R1);
-
-    % Dimension lines for distances
-    \draw[|<->|, thick] (2.85, 1) -- node[fill = white, inner sep = 1.5mm, outer sep = 1.5mm, xshift=1mm] {$14.0\: \text{m}$} (2.85, 5);
-    \draw[|<->|, thick] (2, 0.75) -- node[inner sep = 1.5mm, outer sep = 1.5mm, yshift=-3.25mm] {$4.0\: \text{m}$} (4, 0.75);
-    \draw[dashed] (B3) -- (2.91,4.985);
-
-    % Snowball on roof
-    \shade[ball color = cyan!10, draw=black!75] (2.2,5.35) circle (2ex);
-
-    % Velocity arrow
-    \definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0};
-    \draw [-stealth, ultra thick, color=ao(english)] (2.2, 6.2) -- (3.0, 5.4) node [midway, right, xshift=-3.5, yshift = 2.25mm,  color=black] {$v_{0} = 7.00$ m/s};
-
-    % Angle arc
-    \draw[-stealth, thick] (1.317,5) arc (180:140:.67) node [left, xshift = -0.5mm, yshift = -1.25mm] {$40.0^\circ$};
-    
-
-    % Stick person
-    \coordinate (H) at (4,1.85); % person head
-    \filldraw[thick] (H) circle (0.1);
-    \coordinate (T) at (4,1.3); % person torso
-    \draw[thick] (H) -- (T);
-    \coordinate (L1) at (3.85,1);
-    \draw[thick] (L1) -- (T);
-    \coordinate (L2) at (4.15,1);
-    \draw[thick] (L2) -- (T);
-    \coordinate (A1) at (3.75, 1.65);
-    \draw[thick] (A1) -- (4, 1.55);
-    \coordinate (A2) at (4.25, 1.65);
-    \draw[thick] (A2) -- (4, 1.55);
-
-    % Exclaimation above person
-    \coordinate (E1) at (4, 2.15);
-    \filldraw[thick, color = red] (E1) circle (0.03);
-    \coordinate (E2) at (4, 2.45);
-    \coordinate (E3) at (4, 2.25);
-    \filldraw[very thick, color = red, line cap = round] (E2) -- (E3);
-    
-    \end{tikzpicture}
-\end{figure}
-\bigskip
-
-\textit{a.) How far from the edge of the barn does the snowball strike the ground if it doesn't strike anything else while falling?}
+\textit{$\!$According to the Guinness Book of World Records, the longest home run ever measured was hit by Roy ``Dizzy" Carlyle in a minor league game. The ball traveled 188 m (618 ft) before landing on the ground outside a ballpark.}
 
 \bigskip
 
-\textit{b.) Draw x-t, y-t, $v_x$-t and $v_y$-t graphs for the motion in part (a).}
+\textit{a.) Assuming the ball's initial velocity was in a direction 45.0\textdegree\:above the horizontal and ignoring air resistance, what did the initial speed of the ball need to be to produce such a home run if the ball was hit at a point 0.90 m (3.00 ft) above ground level? \newline Assume the ground was perfectly flat.}
 
 \bigskip
 
-\textit{c.) A man 1.9 m tall is standing 4.0 m from the edge of the barn. Will he be hit by the snowball?}
+\textit{b.) How far would the ball be above a fence 3.00 m (10.0 ft) high if the fence was 116 m \newline (380 ft) from home plate?}
 
 \bigskip
 \bigskip
 \bigskip
 
 \textbf{\large Solution}
-\bigskip 
+\bigskip
 
-a.) To determine the range of the snowball, the time of flight for the object is needed. This can be found by using the vertical version of the kinematic equation for displacement:
+a.) Use the kinematic equation for vertical displacement:
+\begin{align}\label{eq}
+    y_{\text{f}} = y_{\text{i}} + v_{\text{i}_{y}} + \dfrac{1}{2}a_{y}t^2
+\end{align}
+Where $y_{\text{f}}=0$, $v_{\text{i}_{y}}=v_{\text{i}}\sin(\theta)$, and $a_{y}=-g$. Let $y_{\text{i}}=\text{H}$ such that:
+\begin{align}\label{eq2}
+    0 = \text{H} + v_{\text{i}}\sin(\theta)t - \dfrac{1}{2}gt^2
+\end{align}
+This is a quadratic expression in $t$, but there isn't enough information to apply the quadratic equation. The get around this issue, the goal is to express $t$ in terms of known quantities using the horizontal version of \textbf{\labelcref{eq}}:
 \begin{align*}
-    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{\text{y}}}t + \dfrac{1}{2}a_{\text{y}}t^2 \numberthis \label{eq}
-\intertext{Where $y_{\text{f}}=0$ and $a_{\text{y}}=-g$:}
-    0 &= y_{\text{i}} + v_{\text{i}}\sin(\theta)t - \dfrac{1}{2}gt^2
+    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{x}} + \dfrac{1}{2}a_{x}t^2
+\end{align*}
+Where $x_{\text{i}}=0$, $v_{\text{i}_{x}}=v_{\text{i}}\cos(\theta)$, and $a_{x}=0$.
+
+\bigskip
+Let $x_{\text{f}}=\text{R}$ such that:
+\begin{align*}
+    \text{R} &= v_{\text{i}}\cos(\theta)t
+\intertext{Solving for $t$:}
+    t &= \dfrac{\text{R}}{v_{\text{i}}\cos{\theta}} \numberthis \label{eq3}
 \end{align*}
 \pagebreak
 
 \thispagestyle{fancyplain}
 \chead{}
 \renewcommand{\headrulewidth}{0pt}
-\headheight 15pt 
+\headheight 15pt
 \renewcommand{\headsep}{0cm}
 \renewcommand{\footskip}{2.6cm}
-This is a quadratic expression in $t$. The quadratic coefficients are:
-\begin{alignat*}{2}
-    A = &\:-\dfrac{1}{2}g \\\\
-    B = &\:v_{\text{i}}\sin(\theta) \\\\
-    C = &\:y_{\text{i}}
-\end{alignat*}
-Plugging these into the quadratic equation:
-\begin{gather*}
-    t = \dfrac{-\Big(v_{\text{i}}\sin(\theta)  \Big) \pm \sqrt{\Big(v_{\text{i}}\sin(\theta)  \Big)^2 - 4\Big(-\dfrac{1}{2}g \Big)(y_{\text{i}})} }{\cancel{2}\Big(-\dfrac{1}{\cancel{2}}g \Big)} \\\\
-    = \dfrac{-\Big(v_{\text{i}}\sin(\theta)  \Big) \pm \sqrt{\Big(v_{\text{i}}\sin(\theta)  \Big)^2 + 2gy_{\text{i}}}  }{-g} \\\\
-    = \dfrac{v_{\text{i}}\sin(\theta) \mp \sqrt{\Big(v_{\text{i}}\sin(\theta)  \Big)^2 + 2gy_{\text{i}}}}{g}
-\end{gather*}
-Using the minus sign results in a negative time which can be discarded.
-\bigskip
-
-The positive time is:
-\begin{gather*}
-    = \dfrac{\Big(7.00\:\dfrac{ \text{m} }{ \text{s²}\vphantom{a_A} } \Big)\sin(-40.0^\circ) + \sqrt{\Bigg(\Big(7.00\:\dfrac{ \text{m} }{ \text{s²} }  \Big)\sin(-40.0^\circ)   \Bigg)^2 + 2\Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }  \Big)(14.0\:\text{m})} }{9.80\:\dfrac{\text{m}\vphantom{a^a}}{\text{s²}}} \\\\
-    \approx 1.29\:\text{s}
-\end{gather*}
-\textbf{** Note:} The calculation above could also be done with $\theta = 40.0^\circ$ and $v_{\text{i}}=-7.00\:\dfrac{\text{m}}{\text{s²}}$. \newline Both approaches are mathematically equivalent.
+Plugging \textbf{\labelcref{eq3}} into \textbf{\labelcref{eq2}}:
+\begin{align*}
+    0 &= \text{H} + \cancel{v_{\text{i}}}\sin(\theta)\Big(   \dfrac{ \text{R} }{ \cancel{v_{\text{i}}} \cos(\theta) }   \Big) - \dfrac{1}{2}g \Big(\dfrac{ \text{R} }{ v_{\text{i}}\cos(\theta) }   \Big)^2 \\\\
+    &= \text{H} + \text{R} \dfrac{\sin(\theta)}{\cos(\theta)} - \dfrac{g\text{R}^2}{2v_{\text{i}}^2\cos^2(\theta)} \\\\
+    &= \text{H} + \text{R}\tan(\theta) - \dfrac{g\text{R}^2\sec^2(\theta)}{2v_{\text{i}}^2}
+\end{align*}
+For $\theta = 45.0^\circ$, $\tan(\theta) = 1$. Therefore:
+\begin{align*}
+    0 = (\text{H} + \text{R}) - \dfrac{g\Big(\text{R}\sec(\theta)\Big)^2}{2v_{\text{i}}^2}
+\end{align*}
+Solving for $v_{\text{i}}$:
+\begin{align*}
+    \dfrac{g\Big(\text{R}\sec(\theta)\Big)^2}{2v_{\text{i}}^2} &= (\text{H} + \text{R}) \\\\
+    \dfrac{g\Big(\text{R}\sec(\theta)\Big)^2}{2} &= (\text{H} + \text{R})v_{\text{i}}^2 \\\\
+    \dfrac{g\Big(\text{R}\sec(\theta)\Big)^2}{2(\text{H} + \text{R})} &= v_{\text{i}}^2 \\\\
+    \sqrt{\dfrac{g\Big(\text{R}\sec(\theta)\Big)^2}{2(\text{H} + \text{R})}} &= v_{\text{i}} \\\\
+    \sqrt{\dfrac{\Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }  \Big)\Big((188\:\text{m})\sec(45.0^\circ)\Big)^2}{2(0.90\:\text{m} + 188\:\text{m})}} &\approx \boxed{42.8\:\dfrac{\text{m}}{\text{s}}}
+\end{align*}
 \pagebreak
 
-The time above will be used with the horizontal version of \textbf{\labelcref{eq}}:
-\begin{align*}
-    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{\text{x}}}t + \dfrac{1}{2}a_{\text{x}}t^2
-\end{align*}
-Where $x_{\text{i}} = 0$ and $a_{\text{x}}=0$. Let the range of the snowball be $\text{R}$ such that:
-\vspace{1.5mm}
-\begin{align*}
-    \smallskip \hspace{2.37cm}\text{R} &= v_{\text{i}}\cos(\theta)t \numberthis \label{eq2} \\\\ 
-    &= \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }  \Big)\cos(-40.0^\circ)(1.29\:\text{s}) \\\\
-    &\approx \boxed{6.93\:\text{m}}
-\end{align*}
-\smallskip
+b.) The vertical displacement of the ball at the range of 116 m can be expressed as:
+\begin{align}\label{eq4}
+    y_{\text{total}} = y_{\text{fence}} + \Delta y
+\end{align}
+Where $\Delta y$ represents the vertical distance between the ball and the fence.
 
-b.) Plots for the time-dependent behavior of the snowball:
 \bigskip
-\begin{figure}[H]
-    \centering
-    \begin{minipage}[b]{0.40\textwidth}
-    \centering
-    
-        \begin{tikzpicture}
-            \begin{axis}[
-                axis lines = left,
-                x axis line style = {-stealth},
-                y axis line style = {-stealth},
-                xlabel = \(\text{Time [s]} \),
-                ylabel = {\(\text{Displacement [m]}\)},
-                xmin = 0,
-                xmax = 1.4,
-                ymin = 0,
-                ymax = 7,
-                width = 0.96\linewidth
-            ]
-            \addplot[
-                domain = 0:1.2,
-                samples = 100,
-                color = blue,
-                very thick,
-                smooth
-            ]
-            {7*cos(-40)*x};
-            \end{axis}
-        \end{tikzpicture}
-        \captionsetup{labelfont = bf}
-        \caption{$x$\:vs.$\:t$}
-        
-    \end{minipage}
-    \hspace{1.5cm}
-    \begin{minipage}[b]{0.40\textwidth}
-    
-         \begin{tikzpicture}
-            \begin{axis}[
-                axis lines = left,
-                x axis line style = {-stealth},
-                y axis line style = {-stealth},
-                xlabel = \(\text{Time [s]} \),
-                ylabel = {\(\text{Displacement [m]}\)},
-                xmin = 0,
-                xmax = 1.4,
-                ymin = 0,
-                ymax = 14,
-                width = 0.96\linewidth
-            ]
-
-            \addplot[
-                domain = 0:1.3,
-                samples = 100,
-                color = red,
-                very thick,
-                smooth
-            ]
-            {14+7*sin(-40)*x-(0.5*9.8*x^2)};
-
-            \end{axis}
-        \end{tikzpicture}
-        \captionsetup{labelfont = bf}
-        \caption{$y$\:vs.$\:t$}
-    \end{minipage}
-
-    \bigskip
-    \bigskip
-    
-    \begin{minipage}[b]{0.40\linewidth}
-    \centering
-    
-        \begin{tikzpicture}
-            \begin{axis}[
-                axis lines = left,
-                x axis line style = {-stealth},
-                y axis line style = {-stealth},
-                xlabel = \(\text{Time [s]} \),
-                ylabel = {\(\text{Velocity [m/s]}\)},
-                xmin = 0,
-                xmax = 1.4,
-                ymin = 0,
-                ymax = 7,
-                width = 0.96\linewidth
-            ]
-            \addplot[
-                domain = 0:1.2,
-                samples = 100,
-                color = violet,
-                very thick,
-                smooth
-            ]
-            {7*cos(-40)};
-            \end{axis}
-        \end{tikzpicture}
-        \captionsetup{labelfont = bf}
-        \caption{$v_{\text{x}}$\:vs.$\:t$}
-        
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[b]{0.40\linewidth}
-    
-         \begin{tikzpicture}
-            \begin{axis}[
-                axis lines = left,
-                x axis line style = {-stealth},
-                y axis line style = {-stealth},
-                xlabel = \(\text{Time [s]} \),
-                ylabel = {\(\text{Velocity [m/s]}\)},
-                xmin = 0,
-                xmax = 1.4,
-                ymin = -18,
-                ymax = -4,
-                width = 0.96\linewidth
-            ]
-
-            \addplot[
-                domain = 0:1.4,
-                samples = 100,
-                color = orange,
-                very thick,
-                smooth
-            ]
-            {7*sin(-40)-(9.8*x)};
-
-            \end{axis}
-        \end{tikzpicture}
-        \captionsetup{labelfont = bf}
-        \caption{$v_{\text{y}}$\:vs.$\:t$}
-    \end{minipage}
-    
-\end{figure}
-\pagebreak
-
-Functions used for each plot:
-\begin{gather*}
-    x(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} } \Big)\cos(-40.0^\circ)t \\\\
-    y(t) = (14.0\:\text{m}) + \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\sin(-40.0^\circ)t - \dfrac{1}{2}\Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }  \Big)t^2 \\\\
-    v_{\text{x}}(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\cos(-40.0^\circ) \\\\
-    v_{\text{y}}(t) = \Big(7.00\:\dfrac{ \text{m} }{ \text{s} }\Big)\sin(-40.0^\circ) - \Big(9.80\:\dfrac{ \text{m} }{ \text{s²} }\Big)t
-\end{gather*}
-\bigskip
-
-c.) To determine if the man will be hit by the snowball, rearrange \textbf{\labelcref{eq2}} for time: 
+The value of $y_{\text{total}}$ can be found using a process similar to part (a) starting from \textbf{\labelcref{eq2}}. \newline Let $y_{\text{f}} = y_{\text{total}}$ such that:
 \begin{align*}
-    t = \dfrac{\text{R}}{v_{\text{i}}\cos(\theta)}
+    y_{\text{total}} = \text{H} + v_{\text{i}}\sin(\theta)t - \dfrac{1}{2}gt^2
 \end{align*}
-Plugging this into \textbf{\labelcref{eq}}:
-\begin{gather*}
-    y_{\text{f}} = y_{\text{i}} + \cancel{v_{\text{i}}}\sin(\theta)\Big(\dfrac{R}{\cancel{v_{\text{i}}}\cos(\theta)}  \Big) - \dfrac{1}{2}g\Big(\dfrac{\text{R}}{v_{\text{i}}\cos(\theta)}  \Big)^2 \\\\
-    = y_{\text{i}} + \text{R}\dfrac{\sin(\theta)}{\cos(\theta)} - \dfrac{g}{2}\Big(\dfrac{R\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
-    = y_{\text{i}} + \text{R}\tan(\theta) \dfrac{g}{2}\Big(\dfrac{R\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
-    = (14.0\:\text{m}) + (4.0\:\text{m})\tan(-40.0^\circ) - \dfrac{9.80\:\dfrac{ \text{m} }{ \text{s²}\vphantom{A_A} }}{2}\Bigg(\dfrac{(4.0\:\text{m})\sec(-40.0^\circ)}{7.00\:\dfrac{ \text{m}\vphantom{A^a} }{ \text{s} }}  \Bigg)^2 \\\\
-    \approx 7.9\:\text{m}
-\end{gather*}
-This distance is much higher than the vertical position of the man's head (1.9 m). \newline Therefore, \underline{he will not be hit by the snowball}. 
+Substituting $t$ with \textbf{\labelcref{eq3}}:
+\begin{align*}
+     y_{\text{total}} &= \text{H} + \cancel{v_{\text{i}}}\sin(\theta) \dfrac{\text{R}}{\cancel{v_{\text{i}}}\cos(\theta)} - \dfrac{1}{2}g\Big(\dfrac{\text{R}}{v_{\text{i}}\cos(\theta)}  \Big)^2 \\\\
+     &= \text{H} + \text{R}\tan(\theta) - \dfrac{g}{2}\Big(\dfrac{\text{R}\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
+     &= (\text{H} + \text{R}) - \dfrac{g}{2}\Big(\dfrac{\text{R}\sec(\theta)}{v_{\text{i}}}  \Big)^2 \\\\
+     &= (0.90\:\text{m} + 116\:\text{m}) - \dfrac{\Big(9.80\:\dfrac{ \text{m} }{ \text{s²}\vphantom{a_{a_a}} }  \Big)}{2\vphantom{K^{K^K}}}\Bigg(\dfrac{(116\:\text{m})\sec(45.0^\circ)}{42.8\:\dfrac{\text{m}\vphantom{a^a}}{\text{s}}}  \Bigg)^2 \\\\
+     &\approx 44.9\:\text{m}
+\end{align*}
+Then by \textbf{\labelcref{eq4}}:
+\begin{align*}
+    \Delta y &= y_{\text{total}} - y_{\text{fence}} \\\\
+    &= (44.9\:\text{m}) - (3.00\:\text{m}) \\\\
+    &= \boxed{41.9\:\text{m}}
+\end{align*}
+
 
 \end{document}

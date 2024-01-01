@@ -1,0 +1,307 @@
+\documentclass[12pt,letterpaper]{article}
+
+% ================================================================
+%                            Packages
+% ================================================================
+\usepackage{adjustbox, amsmath, amsthm, amsfonts, amssymb, amscd}
+\usepackage{bm}
+\usepackage[makeroom]{cancel}
+\usepackage{caption}
+\usepackage{enumerate}
+\usepackage{fancyhdr, float, fullpage}
+\usepackage[letterpaper,
+            top=2cm,
+            bottom=4.5cm,
+            left=2.5cm,
+            right=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,
+            allcolors=blue,
+            pdftex,
+            pdfauthor={Sine Theta Prime},
+            pdftitle={Compound Projectile Motion Problem \#5},
+            pdfsubject={Motion in Two or Three Dimensions},
+            pdfproducer={LaTeX with Hyperref},
+            pdfcreator={Overleaf}]{hyperref}
+\usepackage[capitalize,
+            noabbrev,
+            nameinlink]{cleveref}
+\usepackage{mathrsfs,
+            mathstyle,
+            mathtools}
+\usepackage{pgfplots}
+\usepgflibrary{shadings}
+\pgfplotsset{compat=1.18}
+\usepackage{physics}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{upgreek}
+\usetikzlibrary{calc,
+                decorations,
+                decorations.pathreplacing,
+                decorations.markings,
+                decorations.text,
+                positioning,
+                scopes}
+\usepackage{xcolor}
+% ================================================================
+
+
+
+% ================================================================
+%                   Custom Commands & Settings
+% ================================================================
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\setlength\fboxsep{0.04in}
+\setlength\fboxrule{1.25pt}
+\setlength{\textheight}{8.5in}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\vcc}{\mspace{2mu}} % vector correction
+% ================================================================
+
+
+
+% ================================================================
+%                        Title Section
+% ================================================================
+\pagestyle{fancyplain}
+\headheight 36pt
+\chead{\textbf{\Large Compound Projectile Motion Problem \#5}\\
+               \large Motion in Two or Three Dimensions}
+\rhead{}
+\lfoot{}
+\cfoot{\line(1,0){475}\\Page\:\thepage}
+\rfoot{}
+\headsep 2em
+% ================================================================
+
+
+
+\begin{document}
+
+% ================================================================
+%                      Question Section
+% ================================================================
+\textit{$\!$A projectile is thrown from a point P. It moves in such a way that its distance from P is always increasing. Find the maximum angle above the horizontal with which the projectile could have been thrown. You can ignore air resistance.}
+
+\bigskip
+\bigskip
+\bigskip
+
+\textbf{\large Solution}
+\bigskip
+
+Let $P$ be the origin of a 2D coordinate system. As the projectile travels, its distance from $P$ is given by the magnitude of its time-dependent position vector:
+\begin{align} \label{eq}
+    \lvert\vec{\vcc r}(t)\rvert= \sqrt{x(t)^2 + y(t)^2\,}
+\end{align}
+Where $x(t)$ and $y(t)$ represent the time-dependent kinematic equations for displacement:
+\begin{align*}
+x(t)&=x_{\text{i}}+{v_{\text{i}}}\cos(\theta)t + \dfrac{1}{2}a_{x}t^2 \\
+y(t)&=y_{ \text{i} }+{v_{\text{i}}}\sin(\theta)t + \dfrac{1}{2}a_{y}t^2
+\end{align*}
+Where $x_{\text{i}}=0$ and $y_{\text{i}}=0$ due to the motion starting from the origin at $P$. \newline Additionally, $a_{x}=0$ and $a_{y}=-g$. Therefore:
+\begin{align*}
+x(t)&={v_{\text{i}}}\cos(\theta)t \\
+y(t)&={v_{\text{i}}}\sin(\theta)t - \dfrac{1}{2}gt^2
+\end{align*}
+Substituting the equations above into \textbf{\labelcref{eq}}:
+\begin{align*}
+\lvert\vec{\vcc r}(t)\rvert= \sqrt{\Big({v_{ \text{i} }\cos(\theta)t \Big)^2 + \Big({v_{\text{i}}}\sin(\theta)t - \dfrac{1}{2}gt^2 \Big)^2}}
+\end{align*}
+If the projectile's distance from $P$ is always increasing, then this means the derivative of $\lvert\vec{\vcc r}(t)\rvert$ with respect to time is always positive:
+\begin{align} \label{eq2}
+\dfrac{\text{d} \lvert\vec{\vcc r}(t)\rvert}{\text{d}t} = \dfrac{\text{d}}{\text{d}t}\Bigg( \sqrt{\Big({v_i}\cos(\theta)t \Big)^2 + \Big({v_i}\sin(\theta)t - \dfrac{1}{2}gt^2 \Big)^2}\, \Bigg)
+\end{align}
+This restricts the location of the projectile on the $xy$ plane to the first quadrant.
+\pagebreak
+
+\thispagestyle{fancyplain}
+\chead{}
+\renewcommand{\headrulewidth}{0pt}
+\headheight 15pt
+\renewcommand{\headsep}{0cm}
+\renewcommand{\footskip}{2.6cm}
+Expansion and simplification of \textbf{\labelcref{eq2}} yields:
+\begin{gather*}
+    = \dfrac{\text{d}}{\text{d}t} \sqrt{{v_{\text{i}}}^2\cos^2(\theta)t^2+{v_{\text{i}}}^2\sin^2(\theta)t^2-\cancel{2}\cdot\dfrac{g}{\cancel{2}}v_{\text{i}}\sin(\theta)t^3+\dfrac{g^2}{4}t^4} \\\\
+    = \dfrac{\text{d}}{\text{d}t} \sqrt{{v_{\text{i}}}^2t^2\cancel{\Big(\cos^2(\theta) + \sin^2(\theta)\Big)} - gv_{\text{i}}\sin(\theta)t^3 + \dfrac{g^2}{4}t^4} \\\\
+    = \dfrac{\text{d}}{\text{d}t} \sqrt{{v_{\text{i}}}^2t^2 - gv_{\text{i}}\sin(\theta)t^3 + \dfrac{g^2}{4}t^4}
+\end{gather*}
+
+To execute the derivative, apply the u-substitution technique:
+\bigskip
+
+Let $u={v_{\text{i}}}^2t^2 - gv_{\text{i}}\sin(\theta)t^3 + \dfrac{g^2}{4}t^4$ and $\dfrac{\text{d}u}{\text{d}t}=2{v_{\text{i}}}^2t-3g{v_{\text{i}}}\sin(\theta)t^2 +g^2t^3$ such that:
+\bigskip
+\begin{align*}
+\dfrac{\text{d}}{\text{d}t} \sqrt{{v_{\text{i}}}^2t^2 - gv_{\text{i}}\sin(\theta)t^3 + \dfrac{g^{2\vphantom{^2}}}{4}t^4}&=\dfrac{\text{d}}{\text{d}u}\sqrt{u}\cdot\dfrac{\text{d}u}{\text{d}t} \\\\
+&= \dfrac{1}{2\sqrt{u}}\cdot \Big(2{v_{\text{i}}}^2t-3g{v_{\text{i}}}\sin(\theta)t^2 +g^2t^3\Big) \\\\
+&= \dfrac{2{v_{\text{i}}}^2t-3g{v_{\text{i}}}\sin(\theta)t^2 +g^2t^3}{2\sqrt{u}}
+\end{align*}
+Given that $u$ is just a modified form of $x(t)^2 + y(t)^2$, and that $\sqrt{x(t)^2+y(t)^2\,} = \lvert\vec{\vcc r}(t)\rvert$, then:
+\begin{align} \label{eq3}
+\dfrac{\text{d} \lvert\vec{\vcc r}\vcc\rvert}{\text{d}t} = \dfrac{2{v_i}^2t-3g{v_i}\sin(\theta)t^2 +g^2t^3}{2\lvert\vec{\vcc r}(t)\rvert}
+\end{align}
+Since \textbf{\labelcref{eq3}} is always increasing, this means that:
+\begin{align*}
+\dfrac{2{v_{\text{i}}}^2t-3g{v_{\text{i}}}\sin(\theta)t^2 +g^2t^3}{2\lvert\vec{\vcc r}(t)\rvert} &> 0
+\end{align*}
+Multiplying both sides by $2\lvert\vec{\vcc r}(t)\rvert$:
+\begin{align*}
+2{v_{\text{i}}}^2t-3g{v_{\text{i}}}\sin(\theta)t^2 +g^2t^3 &> 0
+\end{align*}
+Dividing both sides by $t$:
+\begin{align*}
+2{v_{\text{i}}}^2-3g{v_{\text{i}}}\sin(\theta)t +g^2t^2 &> 0
+\end{align*}
+\pagebreak
+
+The result is a quadratic expression in $t$. The quadratic coefficients are:
+\begin{align*}
+A &= g^2 \\\\
+B &= -3g{v_{\text{i}}}\sin(\theta) \\\\
+C &= 2{v_{\text{i}}}^2
+\end{align*}
+
+Rather than solve the quadratic equation, take advantage of the fact that $x(t)>0$ and $y(t)>0$ only if $t>0$. This implies two things:
+\begin{enumerate}
+    \item The quadratic coefficient $A$ must be positive, and
+    \item The quadratic discriminant ($\Delta = B^2 - 4AC$) must be negative or zero.
+\end{enumerate}
+
+The sign of $\Delta$ can be found by setting up (but not solving) the quadratic equation and simplifying enough to arrive at a form that can be plotted:
+
+\begin{gather*}
+    t = \dfrac{ -\Big(-3gv_{ \text{i} }\sin(\theta)  \Big) \pm \sqrt{ \Big(-3gv_{ \text{i} }\sin(\theta)  \Big)^2 - 4(g^2)(2v_{ \text{i} })^2  }}{2g^2} \\\\
+    = \dfrac{ 3gv_{ \text{i} }\sin(\theta) \pm \sqrt{ \Big(-3gv_{ \text{i} }\sin(\theta)  \Big)^2 - 8(gv_{ \text{i} })^2  }}{2g^2} \\\\
+    = \dfrac{ 3gv_{ \text{i} }\sin(\theta) \pm \sqrt{ (gv_{ \text{i} })^2  \Bigg[ \Big(-3\sin(\theta)  \Big)^2 - 8 \Bigg]  }}{2g^2} \\\\
+    = = \dfrac{ 3\cancel{g}v_{ \text{i} }\sin(\theta) \pm \cancel{g}v_{ \text{i} } \sqrt{\Big(-3\sin(\theta)  \Big)^2 - 8}}{2g^{\cancel{2}}} \\\\
+    = \dfrac{v_{ \text{i} }}{2g}\Big(3\sin(\theta) \pm \sqrt{9\sin^{2^{\vphantom{a^a}}}(\theta) - 8}\Big) \\
+\end{gather*}
+Given that $x(t) > 0$ and $y(t) > 0$ only if $t > 0$, the quadratic equation can be expressed as:
+\begin{gather*}
+    \dfrac{v_{ \text{i} }}{2g}\Big(3\sin(\theta) \pm \sqrt{9\sin^{2^{\vphantom{a^a}}}(\theta) - 8}\Big) > 0 \\\\
+    3\sin(\theta) \pm \sqrt{9\sin^{2^{\vphantom{a^a}}}(\theta) - 8} > 0
+\end{gather*}
+No further simplification is possible and the inequalities are a function of angle only. \newline Plotting these expressions demonstrates the following behavior:
+\smallskip
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.90\textwidth}
+
+
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = middle,
+                x axis line style = {-stealth},
+                y axis line style = {-stealth},
+                xlabel = \(\theta\),
+                ylabel = {\(y\)},
+                xmin = 0,
+                xmax = 2*pi,
+                ymin = -5,
+                ymax = 5,
+                width = 1.0\linewidth,
+                xtick = {0, 1.5707, 3.1415, 4.7123, 6.2831},
+                xticklabels = {0, $\pi/2$, $\pi$, $3\pi/2$, $2\pi$},
+                legend style = {minimum height = 1cm},
+                legend image post style = {yshift = -1.25mm}
+            ]
+
+            % plots are split into halves to avoid erratic graph display
+
+            \addplot[
+                domain = 0:pi,
+                samples = 100,
+                color = blue,
+                ultra thick,
+                smooth
+            ]
+            { 3*sin( deg(x) ) + (9*sin( deg(x))^2 - 8)^(0.5) };
+            \addlegendentry{$3\sin(\theta) + \sqrt{9\sin^{2^{\vphantom{a^a}}}(\theta) - 8}$}
+
+            \addplot[
+                domain = pi:2*pi,
+                samples = 100,
+                color = blue,
+                ultra thick,
+                smooth,
+                forget plot  % Don't need multiple blue lines on legend representing function
+            ]
+            { 3*sin( deg(x) ) + (9*sin( deg(x))^2 - 8)^(0.5) };
+
+            \addplot[
+                domain = 0:pi,
+                samples = 100,
+                color = red,
+                ultra thick,
+                smooth,
+                yshift = 4.5mm,
+                forget plot  % yshift causes line on legend to also be shifted
+            ]
+            { 3*sin( deg(x) ) - (9*sin( deg(x))^2 - 8)^(0.5) };
+
+            \addplot[
+                domain = pi:2*pi,
+                samples = 100,
+                color = red,
+                ultra thick,
+                smooth,
+                yshift = 4.5mm,
+                forget plot
+            ]
+            { 3*sin( deg(x) ) - (9*sin( deg(x))^2 - 8)^(0.5) };
+            \addlegendentry{$3\sin(\theta) - \sqrt{9\sin^{2^{\vphantom{a^a}}}(\theta) - 8}$}
+
+            % Dud plot added to ensure proper red line on legend
+            \addplot[
+                samples = 1,
+                color = red,
+                ultra thick
+            ]
+            { 6 };
+
+
+            % Positive plot region
+            \coordinate (A) at (0, -5);
+            \coordinate (B) at (0, 5);
+            \coordinate (C) at (3.1415, 5);
+            \coordinate (D) at (3.1415, -5);
+
+            % Negative plot region
+            \coordinate (E) at (6.2831, 5);
+            \coordinate (F) at (6.2831, -5);
+
+            \begin{pgfonlayer}{bg}
+                % Positive graph region
+                \filldraw[color=green!5] (A) -- (B) -- (C) -- (D);
+                % Negative graph region
+                \filldraw[color=red!5] (C) -- (E) -- (F) -- (D);
+            \end{pgfonlayer}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{minipage}
+\end{figure}
+The green region contains solutions that satisfy $t > 0$, whereas the red region does not. Regardless, no interaction with the x-axis occurs. Therefore $\Delta < 0$.
+\pagebreak
+
+Let $\uptheta_{ \text{max} }$ be the maximum angle of the projectile such that:
+\begin{gather*}
+    B^2 - 4AC < 0 \\\\
+    \Big( -3g{v_{\text{i}}}\sin(\uptheta_{\text{max}}) \Big)^2 - 4(g^2)(2v_{ \text{i} }^2) < 0 \\\\
+    9g^2v_{ \text{i} }^2\sin^2(\uptheta_{\text{max}}) - 8g^2v_{ \text{i} }^2 < 0 \\\\
+    9\cancel{g^2}\cancel{v_{ \text{i} }^2}\sin^2(\uptheta_{\text{max}}) < 8\cancel{g^2}\cancel{v_{ \text{i} }^2} \\\\
+    \sin^2(\uptheta_{\text{max}}) < \dfrac{8}{9} \\\\
+    \sin(\uptheta_{\text{max}}) < \dfrac{2\sqrt{2}}{3} \\\\
+    \uptheta_{\text{max}} < \sin^{-1}\Big(\dfrac{2\sqrt{2}}{3}\Big) \\\\
+    \approx \boxed{70.5^\circ}
+\end{gather*}
+
+
+\end{document}
