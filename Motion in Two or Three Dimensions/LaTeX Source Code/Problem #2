@@ -206,14 +206,14 @@ The distance D will be the sum of the two distances $\text{d}_1$ and $\text{d}_2
 
 To determine the value of $\text{d}_1$ and $\text{d}_2$, the time of flight for the equipment must be known. This can be found by using the kinematic equation for vertical displacement:
 \begin{align}\label{eq}
-    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{\text{y}}}t + \dfrac{1}{2}a_{\text{y}}t^2
+    y_{\text{f}} &= y_{\text{i}} + v_{\text{i}_{y}}t + \dfrac{1}{2}a_{y}t^2
 \end{align}
-Let H be the height of the tower, $\uptheta$ be the launch angle of the equipment, and $-g$ the acceleration due to gravity, such that:
+Let $y_{\text{i}}=H$, $a_{y}=-g$, and $\uptheta$ be the launch angle of the equipment such that:
 \begin{align*}
     0 &= \text{H} + v_{\text{i}} \sin(\uptheta)t - \dfrac{1}{2}gt^2
 \end{align*}
 
-This is a quadratic expression in $t$. 
+This is a quadratic expression in $t$.
 \pagebreak
 
 
@@ -221,7 +221,7 @@ This is a quadratic expression in $t$.
 \thispagestyle{fancyplain}
 \chead{}
 \renewcommand{\headrulewidth}{0pt}
-\headheight 15pt 
+\headheight 15pt
 \renewcommand{\headsep}{0cm}
 \renewcommand{\footskip}{2.6cm}
 The quadratic coefficients are:
@@ -244,26 +244,25 @@ The positive time is:
     = \dfrac{\Big(15.0\:\dfrac{\text{m}}{\text{s}}\Big)\sin(60.0^\circ) + \sqrt{\Bigg(\Big(15.0\:\dfrac{\text{m}}{\text{s}}\Big)\sin(60.0^\circ)  \Bigg)^2 + 2\Big(9.80\:\dfrac{\text{m}}{\text{s²}}\Big)(8.75\:\text{m})}}{9.80\:\dfrac{\text{m\vphantom{a^a}}}{\text{s²}}}
 \end{align*}
 \begin{align*}
-    \approx 3.21\:\text{s} 
+    \approx 3.21\:\text{s}
 \end{align*}
 \pagebreak
 
 With the time known, $\text{d}_1$ is found by using the horizontal version of \textbf{\labelcref{eq}}:
 \begin{align*}
-    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{\text{x}}}t + \dfrac{1}{2}a_{\text{x}}t^2
+    x_{\text{f}} = x_{\text{i}} + v_{\text{i}_{x}}t + \dfrac{1}{2}a_{x}t^2
 \end{align*}
-Where $x_{\text{f}}=\text{d}_1$, $x_{\text{i}}=0$, and $a_{\text{x}}=0$:
+Where $x_{\text{f}}=\text{d}_1$, $x_{\text{i}}=0$, and $a_{x}=0$:
 \begin{alignat*}{2}
-    \hspace{1.9cm}\text{d}_1 &= v_{\text{i}_{\text{x}}}t \\\\
+    \hspace{1.9cm}\text{d}_1 &= v_{\text{i}_{x}}t \\\\
     &= v_{\text{i}}\cos{\theta}t \\\\
     &= \Big(15.0\:\dfrac{\text{m}}{\text{s}} \Big)\cos(60.0^\circ)(3.21\:\text{s}) \\\\
     &\approx 24.1\:\text{m}
-\intertext{To find $\text{d}_2$, use the 1D version of \textbf{\labelcref{eq}} in the horizontal direction applied to the boat at its initial position, where $x_f={\text{d}}_2$, $x_{\text{i}}=0$, and $a=0$ :}
+\intertext{To find $\text{d}_2$, use the 1D version of \textbf{\labelcref{eq}} in the horizontal direction applied to the boat at its initial position, where $x_f={\text{d}}_2$, $x_{\text{i}}=0$, and $a_{x}=0$ :}
     \text{d}_2 &= \Big(0.45\: \dfrac{ \text{m} }{ \text{s} }  \Big)(3.21\:\text{s}) \\\\
     &\approx 1.44\:\text{m}
 \intertext{Therefore, the final answer is:}
     \text{D} &= (24.1\:\text{m}) + (1.44\:\text{m}) \\\\
     &\approx \boxed{25.5\:\text{m}}
 \end{alignat*}
-
 \end{document}
